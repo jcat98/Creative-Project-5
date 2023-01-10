@@ -1,0 +1,21 @@
+.Heading {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.Info {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    padding-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.Button {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10%;
+}

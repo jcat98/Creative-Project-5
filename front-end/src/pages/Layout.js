@@ -16,12 +16,6 @@ const Layout = () => {
             <li className="nav-item">
                 <Link className="nav-link" to="/reservations">Reservations</Link>
             </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/users">Events</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/users">Memberships</Link>
-            </li>
         </ul>
       </div>
     </nav>

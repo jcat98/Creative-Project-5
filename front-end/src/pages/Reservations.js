@@ -6,6 +6,7 @@ import emailjs from "emailjs-com";
 import React, { useRef } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Footer from './Footer.js'
 import './Reservations.css';
 
 const Reservations =() => {
@@ -51,6 +52,7 @@ const Reservations =() => {
     
     const sendEmail = (e) => {
         console.log("in the send email function");
+        console.log(e.target.value);
         e.preventDefault();
 
         emailjs.sendForm('service_oxtc3pq', 'template_dw998fd', form.current, '72lH51fEMzF6yMJSZ')
@@ -104,7 +106,7 @@ const Reservations =() => {
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridMonth">
           <Form.Label>Month</Form.Label>
-          <Form.Select defaultValue="Choose..." onChange={e=>setMonth(e.target.value)}>
+          <Form.Control as="select" value={month} onChange={e=>setMonth(e.target.value)} name="month">
             <option>Month...</option>
             <option value="January">January</option>
             <option value="February">February</option>
@@ -118,12 +120,12 @@ const Reservations =() => {
             <option value="October">October</option>
             <option value="November">November</option>
             <option value="December">December</option>
-          </Form.Select>
+          </Form.Control>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridDay">
           <Form.Label>Day</Form.Label>
-          <Form.Select defaultValue="Choose..." onChange={e=>setDay(e.target.value)}>
+          <Form.Control as="select" value={day} onChange={e=>setDay(e.target.value)} name="day">
             <option>Day...</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -156,20 +158,20 @@ const Reservations =() => {
             <option value="29">29</option>
             <option value="30">30</option>
             <option value="31">31</option>
-          </Form.Select>
+          </Form.Control>
         </Form.Group>
         
         <Form.Group as={Col} controlId="formGridYear">
           <Form.Label>Year</Form.Label>
-          <Form.Select defaultValue="Choose..." onChange={e=>setYear(e.target.value)}>
+          <Form.Control as="select" value={year} onChange={e=>setYear(e.target.value)} name="year">
             <option>Year...</option>
             <option value="2022">2022</option>
-          </Form.Select>
+          </Form.Control>
         </Form.Group>
         
         <Form.Group as={Col} controlId="formGridTime">
           <Form.Label>Time</Form.Label>
-          <Form.Select defaultValue="Choose..." onChange={e=>setTime(e.target.value)}>
+          <Form.Control as="select" value={time} onChange={e=>setTime(e.target.value)} name="time">
             <option>Time...</option>
             <option value="7:00am">7:00am</option>
             <option value="7:30am">7:30am</option>
@@ -203,14 +205,14 @@ const Reservations =() => {
             <option value="9:30pm">9:30pm</option>
             <option value="10:00pm">10:00pm</option>
             <option value="10:30pm">10:30pm</option>
-          </Form.Select>
+          </Form.Control>
         </Form.Group>
     </Row>
     
     <Row>
         <Form.Group as={Col} controlId="formGridSize">
             <Form.Label>Group Size</Form.Label>
-            <Form.Select defaultValue="Choose..." onChange={e=>setSize(e.target.value)}>
+            <Form.Select value={size} onChange={e=>setSize(e.target.value)} name="size">
                 <option>Size...</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -232,6 +234,7 @@ const Reservations =() => {
     </Form>
         </div>
     </div>
+    <Footer/>
     </>
   );
 }
